@@ -1,0 +1,8 @@
+<div class="cart-button">
+  <mat-icon [matBadge]="prodCount" matBadgePosition="bottom" matBadgeColor="warn" *ngIf="prodCount; else cart">shopping_cart</mat-icon>
+  <ng-template #cart>
+    <mat-icon >shopping_cart</mat-icon>
+  </ng-template>
+</div>
+
+

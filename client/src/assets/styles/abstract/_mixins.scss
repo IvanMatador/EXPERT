@@ -1,0 +1,28 @@
+@import "variables";
+
+@mixin appear($name: 'appear', $duration: 0.2s, $delay: 0s, $translateY: -20px, $translateX: 0px, $translateToX: 0px, $translateToY: 0px, $easing: $cubicBezier, $fillMode: forwards) {
+  animation: appear-#{unquote($name)} $duration $easing $delay $fillMode;
+
+  @keyframes appear-#{unquote($name)} {
+    from {
+      opacity: 0;
+      transform: translate($translateX, $translateY);
+    }
+    to {
+      opacity: 1;
+      transform: translate($translateToX, $translateToY);
+    }
+  }
+}
+
+@mixin respond-to($value) {
+  @media (min-width: #{$value}) {
+    @content;
+  }
+}
+
+@mixin respond-to-less-than($value) {
+  @media (max-width: calc(#{$value} - 1px)) {
+    @content;
+  }
+}

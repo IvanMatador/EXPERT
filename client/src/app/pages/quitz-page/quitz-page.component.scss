@@ -1,0 +1,20 @@
+@import "variables";
+@import "mixins";
+
+.wrapper {
+  display: flex;
+  width: inherit;
+
+  @include respond-to($media_large) {
+    width: max-content;
+  }
+}
+
+.not-used {
+  text-align: center;
+
+  & a {
+    text-decoration: underline;
+    color: rgb(19, 1, 138);
+  }
+}

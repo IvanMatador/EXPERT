@@ -1,0 +1,22 @@
+@import "../abstract/mixins";
+
+.container {
+  padding: 0 8px;
+
+  @include respond-to($media_medium) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @include respond-to($media_large) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @include respond-to($media_max-content-width) {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

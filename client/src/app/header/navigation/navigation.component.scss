@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+.wrapper {
+  display: block;
+
+  @include respond-to($media_large) {
+    display: none;
+  }
+
+  
+}
+
+.desktop-nav {
+  display: none;
+
+  @include respond-to($media_large) {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+  }
+}
+
+.desktop-nav li {
+  display: block;
+  padding: 5px;
+  border: 2px solid darkgray;
+  border-radius: 0 15px 0 15px;
+  font-size: 16px;
+  color: rgb(94, 92, 92);
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: rgba(41, 17, 255, 0.459);
+  }
+}

@@ -1,0 +1,65 @@
+<ul class="desktop-nav">
+  <li><a [routerLink]="[ '/' ]">Главная</a></li>
+  <li><a [routerLink]="[ '/catalog' ]">Каталог</a></li>
+  <li><a [routerLink]="[ '/cart' ]">Корзина</a></li>
+  <li><a [routerLink]="[ '/orders' ]">Заказы</a></li>
+  <li><a [routerLink]="[ '/addcash' ]">Пополнить баланс</a></li>
+  <li><a [routerLink]="[ '/reports' ]">Отчеты</a></li>
+  <li><a [routerLink]="[ '/news' ]">Новости</a></li>
+  <li><a [routerLink]="[ '/prices' ]">Прайс-листы</a></li>
+  <li><a [routerLink]="[ '/reference' ]">Справка</a></li>
+  <li><a [routerLink]="[ '/quitz' ]">Опрос</a></li>
+  <li><a [routerLink]="[ '/props' ]">Настройки</a></li>
+</ul>
+
+<div class="wrapper">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="[ '/' ]">
+      <mat-icon>home</mat-icon>
+      <span>Главная</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/catalog' ]">
+      <mat-icon>list_alt</mat-icon>
+      <span>Каталог</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/cart' ]"> 
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Корзина</span>
+    </button>
+    <button mat-menu-item  [routerLink]="[ '/orders' ]">
+      <mat-icon>add_task</mat-icon>
+      <span>Заказы</span>
+    </button>
+    <button mat-menu-item  [routerLink]="[ '/addcash' ]">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <span>Пополнить баланс</span>
+    </button> 
+    <button mat-menu-item  disabled [routerLink]="[ '/reports' ]">
+      <mat-icon>grading</mat-icon>
+      <span>Отчеры</span>
+    </button>  
+    <button mat-menu-item  [routerLink]="[ '/news' ]">
+      <mat-icon>fiber_new</mat-icon>
+      <span>Новости</span>
+    </button>    
+    <button mat-menu-item [routerLink]="[ '/prices' ]">
+      <mat-icon>request_page</mat-icon>
+      <span>Прайс-листы</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/reference' ]">
+      <mat-icon>support_agent</mat-icon>
+      <span>Справка</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/quitz' ]">
+      <mat-icon>help_outline</mat-icon>
+      <span>Опрос</span>
+    </button>
+    <button mat-menu-item [routerLink]="[ '/props' ]">
+      <mat-icon>miscellaneous_services</mat-icon>
+      <span>Настройки</span>
+    </button>
+  </mat-menu>
+</div>

@@ -1,0 +1,46 @@
+@import "variables";
+@import "mixins";
+
+.slide1 {
+  background: no-repeat url('../../../assets/images/lide1.jpg');
+  background-position:  center right ;
+
+  @include respond-to($media_large) {
+    background-position:  center bottom ;
+  }
+  background-size: cover;
+}
+
+.slide2 {
+  background: no-repeat center bottom url('../../../assets/images/lide2.jpg');
+  
+  @include respond-to($media_large) {
+    background-position:  center center ;
+  }
+
+  background-size: cover;
+}
+
+.slide3 {
+  background: no-repeat center center url('../../../assets/images/lide3.jpg');
+  background-size: cover;
+}
+
+.slide4 {
+  background: no-repeat center center url('../../../assets/images/lide5.jpg');
+  @include respond-to($media_large) {
+    background-position:  center center ;
+  }
+  background-size: cover;
+}
+
+.carousel-item h2,
+.carousel-item p {
+  width: fit-content;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,0.3);
+}
+
+
+

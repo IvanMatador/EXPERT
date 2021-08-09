@@ -1,0 +1,28 @@
+$primary: #fcb800;
+$action: #f8ca68;
+$dark: #313131;
+$grey: #666;
+$success: #2ecc40;
+$red: #f53f48;
+$borderColor: #e9e9e9;
+$white: #ffffff;
+$link: #3e77aa;
+$linkHover: $red;
+
+$disabledBackground: rgba($dark, 0.1);
+$disabledTextColor: rgba($dark, 0.3);
+
+$cubicBezier: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+$media_medium: 600px;
+$media_large: 1024px;
+$media_max-content-width: 1300px;
+$media_x-large: 1441px;
+
+$zIndexFixedToolbar: 3;
+$zIndexAnnouncement: 10;
+$zIndexToolbarFixedWithOpenedSearchbar: 20;
+$zIndexSidebarOverlay: 30;
+$zIndexSidebarMenu: 31;
+$zIndexModalOverlay: 30;
+$zIndexModal: 31;

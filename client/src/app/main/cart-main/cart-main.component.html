@@ -1,0 +1,49 @@
+<div class="wrapper"  *ngIf="cardsByIds; else nocards">
+
+  <table mat-table [dataSource]="cardsByIds" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="item">
+      <th mat-header-cell *matHeaderCellDef> Наименование </th>
+      <td mat-cell *matCellDef="let card"> {{card.title}} </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="img">
+      <th mat-header-cell *matHeaderCellDef> Изображение </th>
+      <td mat-cell *matCellDef="let card"> <img width="150px" [src]="card.imgSrc" alt=""> </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef> Цена с учетом персональной скидки </th>
+      <td mat-cell *matCellDef="let card"> {{ card.oldPrice - (card.oldPrice/100*discount) }} грн</td>
+      <td mat-footer-cell *matFooterCellDef>  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Количество </th>
+      <td mat-cell *matCellDef="let card"> {{ getCount(card.id) }} шт</td>
+      <td mat-footer-cell *matFooterCellDef>  <b>Общая сумма</b>  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalCost">
+      <th mat-header-cell *matHeaderCellDef> Сумма </th>
+      <td mat-cell *matCellDef="let card"> {{ (card.oldPrice - (card.oldPrice/100*discount)) * getCount(card.id) }} грн</td>
+      <td mat-footer-cell *matFooterCellDef> <b>{{getTotalCost()}}</b> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let card"> <mat-icon color="warn" (click)="deleteItem(card.id)">delete</mat-icon> </td>
+      <td mat-footer-cell *matFooterCellDef>  </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+</div>
+
+  <ng-template #nocards>
+    <h5>You have no products in your cart!</h5>
+  </ng-template>

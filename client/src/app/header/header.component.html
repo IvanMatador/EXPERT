@@ -1,0 +1,11 @@
+<div class="header-container" [ngStyle]="{'background-color': bgColor}">
+  <div class="logo"><img src="../../assets/images/logo.png" alt="" class="logo-img"></div>
+  <div class="navigation">
+   
+    <app-navigation></app-navigation>
+  </div>
+  
+  <div class="log-in">Log-In</div>
+  
+  <app-cart class="cart-button" [routerLink]="[ '/cart' ]"></app-cart>
+

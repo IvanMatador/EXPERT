@@ -1,0 +1,57 @@
+@import "variables";
+
+.btn {
+  padding: 10px 15px 9px;
+  background: $action;
+  border: 1px solid $action;
+  border-radius: 5px;
+  font-size: 16px;
+  color: $dark;
+  transition: background-color 0.15s ease;
+
+  &[disabled] {
+    background: $disabledBackground;
+    border-color: $disabledBackground;
+    color: $disabledTextColor;
+    cursor: not-allowed;
+  }
+
+  &:not([disabled]):hover,
+  &:not([disabled]):active {
+    color: $dark;
+    background: darken($action, 5%);
+  }
+  &:not([disabled]):active {
+    background: darken($action, 10%);
+  }
+
+  &--transparent {
+    background: transparent;
+
+    &:not([disabled]):hover {
+      background: $primary;
+    }
+    &:not([disabled]):active {
+      background: $primary;
+    }
+  }
+
+  &--default {
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+
+    &:not([disabled]):hover {
+      background: rgba($dark, 0.08);
+    }
+    &:not([disabled]):active {
+      background: rgba($dark, 0.12);
+    }
+  }
+
+  &--small {
+    padding: 8px 13px 7px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+}
