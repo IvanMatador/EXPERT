@@ -1,3 +1,28 @@
-<button (click)="generateDocFile()">
-  DOWNLOAD
-</button>
+<div class="no-type-eo" *ngIf="false">
+  
+</div>
+<div class="wrapper">
+  <form [formGroup]="eoFormGroup" #firstForm="ngForm" >
+    <mat-form-field>
+      <input matInput
+            type="text"
+            formControlName="edrpou"
+            placeholder="ЄДРПОУ">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Тип експертного обстеження</mat-label>
+      <mat-select formControlName="type"
+                  matTooltip="Тип ">
+        <mat-option *ngFor="let type of typesEO" [(value)]="type.id" >
+          <span matTooltip="{{type.type}}">{{type.type}}</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="generateDocFile()">
+    DOWNLOAD
+  </button>
+</div>
+
+
+ 

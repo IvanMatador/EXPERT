@@ -1,6 +1,8 @@
 import { dataObject } from './../interfaces/data-object.interface';
 import { MkDocService } from './../services/mkdoc.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit, ViewChild } from '@angular/core';
+import * as docx from 'docx';
+import { FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 /* export interface dataObject {
   EDRPOU: string;
@@ -14,17 +16,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./docx-redactor.component.scss']
 })
 export class DocxRedactorComponent implements OnInit {
+  noTypeSelected = true;
 
   shortName: string = 'ПрАТ "МЕТЦ"';
   typeOfEO: string = 'роботи';
+  testData = new docx.Document({
+    sections: [{
+      properties: {},
+      children: [
+        new docx.Paragraph({
+          children: [
+            new docx.TextRun("УСПЕХ"),
+            new docx.TextRun({
+              text: "В МЕЛОЧАХ",
+              bold: true,
+            }),
+          new docx.TextRun({
+            text: "А МОЖЕТ И В БОЛЬШИХ ДЕЛАХ",
+            bold: true,
+          }),
+        ],
+            }),
+        ],
+    }],
+  });
   dataArray: dataObject = {
     EDRPOU: '34534582',
     shortName: 'ПрАТ "МЕТЦ"',
     typeOfEO: 'роботи',
     head: 'Полякова Олена Анатоліївна'
   };
+  eoFormGroup = new FormGroup({
+    edrpou: new FormControl(null, [Validators.required]),
+    type: new FormControl(),
+  });
+  
+  typesEO = [{type: 'roboti', id: 'eo_rob'}, {type: 'expluatation', id: 'eo_ex'}];
 
-  constructor(public mkDocService: MkDocService) { }
+  @ViewChild('firstForm') firstForm;
+
+  constructor(public mkDocService: MkDocService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     //console.log(docx)
@@ -32,7 +63,7 @@ export class DocxRedactorComponent implements OnInit {
   }
 
   generateDocFile() {    
-    this.mkDocService.mkDocxFile(this.dataArray).subscribe(item => {
+    /* this.mkDocService.mkDocxFile(this.dataArray).subscribe(item => {
       const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
         const byteCharacters = atob(b64Data);
         const byteArrays = [];
@@ -58,7 +89,29 @@ export class DocxRedactorComponent implements OnInit {
       a.download = `ЕО ${this.shortName} (${this.typeOfEO}).docx`;
       //a.click();
       alert('file is downloaded')
+    }); */
+
+    
+    this.generateDocxFile(this.testData)
+  }
+
+
+
+  generateDocxFile(doc) {
+    docx.Packer.toBlob(doc).then(blob => {
+      //saveAs(blob, "example.docx");
+      let filename = prompt('Введите имя файла', `ЕО ${this.shortName} (${this.typeOfEO})`); // need to add popup window
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = URL.createObjectURL(blob);
+      a.download = filename !== null ? filename + '.docx' : `ЕО ${this.shortName} (${this.typeOfEO})`;
+      a.click();
+      //alert('file is downloaded')
     });
+  }
+
+  checkSelection() {
+    this.noTypeSelected = false;
   }
 
 
