@@ -28,6 +28,7 @@
     "bootstrap-material-design": "^4.1.1",
     "docx": "^6.0.3",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "hammerjs": "^2.0.8",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",

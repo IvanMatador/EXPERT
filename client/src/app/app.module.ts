@@ -5,19 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SorterTableComponent } from './sorter-table/sorter-table.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {SorterTableModule} from './sorter-table/sorter-table.module';
 import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
-import { NavigationComponent } from './header/navigation/navigation.component';
-import { CartComponent } from './header/cart/cart.component';
-import { CatalogComponent } from './main/catalog/catalog.component';
-import { CarouselComponent } from './main/carousel/carousel.component';
-import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { A11yModule } from '@angular/cdk/a11y';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -58,41 +49,12 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import { CartMainComponent } from './main/cart-main/cart-main.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
-import { AddCashPageComponent } from './pages/add-cash-page/add-cash-page.component';
-import { ReportPageComponent } from './pages/report-page/report-page.component';
-import { NewsPageComponent } from './pages/news-page/news-page.component';
-import { PricePageComponent } from './pages/price-page/price-page.component';
-import { ReferencePageComponent } from './pages/reference-page/reference-page.component';
-import { QuitzPageComponent } from './pages/quitz-page/quitz-page.component';
-import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { DocxRedactorComponent } from './docx-redactor/docx-redactor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SorterTableComponent,
-    HeaderComponent,
-    MainComponent,
-    NavigationComponent,
-    CartComponent,
-    CartMainComponent,
-    CatalogComponent,
-    CarouselComponent,
-    SidebarComponent,
-    CartComponent,
-    CartPageComponent,
-    OrdersPageComponent,
-    AddCashPageComponent,
-    ReportPageComponent,
-    NewsPageComponent,
-    PricePageComponent,
-    ReferencePageComponent,
-    QuitzPageComponent,
-    PropertiesPageComponent,
-    NotFoundComponent,
+    DocxRedactorComponent,
   ],
   exports: [
     A11yModule,
@@ -147,7 +109,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BrowserAnimationsModule,
     MatSliderModule,
     HttpClientModule,
-    SorterTableModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -158,7 +119,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatFormFieldModule,
     MatInputModule,
   ],
-  entryComponents: [SorterTableComponent],
+  entryComponents: [AppComponent],
   providers: [ { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'legacy' } }, 
   { provide: HTTP_INTERCEPTORS,
    multi: true,

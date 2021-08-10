@@ -1,7 +1,4 @@
-import { NavigationComponent } from './header/navigation/navigation.component';
-import { MainComponent } from './main/main.component';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +7,6 @@ import { HeaderComponent } from './header/header.component';
 })
 export class AppComponent implements OnInit {
   title = 'Parts';
-
-  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
-  @ViewChild(MainComponent) mainComponent: MainComponent;
-  @ViewChild(NavigationComponent) navigationComponent: NavigationComponent
   
   isOpened: boolean;
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CartPageComponent } from './cart-page.component';
+import { DocxRedactorComponent } from './docx-redactor.component';
 
-describe('CartPageComponent', () => {
-  let component: CartPageComponent;
-  let fixture: ComponentFixture<CartPageComponent>;
+describe('DocxRedactorComponent', () => {
+  let component: DocxRedactorComponent;
+  let fixture: ComponentFixture<DocxRedactorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartPageComponent ]
+      declarations: [ DocxRedactorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CartPageComponent);
+    fixture = TestBed.createComponent(DocxRedactorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
